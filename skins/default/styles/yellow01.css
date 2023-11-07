@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+/*-------------------------------------------------
+  基本設定
+-------------------------------------------------*/
+*{color:#333;}
+a{color:#c00;}
+
+body{background:#ff9 url(../img/borderDE.gif);}
+#body{
+	background:#fff;
+	border-right:1px solid #999;
+	border-left:1px solid #999;
+}
+
+/*-------------------------------------------------
+  ヘッダー
+-------------------------------------------------*/
+#header{
+	background:#ff6 url(img/a0002.jpg) no-repeat -100px 0px;
+	border-bottom:1px solid #900;
+}
+#header h1,
+#header h1 a{
+	color:#009;
+	
+},
+#header h1 .desc{
+	color:#000;
+}
+
+
+/*-------------------------------------------------
+  アサイド
+-------------------------------------------------*/
+#sidebar{background:#ffc;}
+#sidebar dl dt{
+	border-bottom-color:#c90;
+	border-left-color:#fc0;
+	color:#c03;
+	background:#ffffef;
+}
+#sidebar .menu dd{border-bottom-color:#999;}
+#sidebar dd  a{color:#333;}
+#sidebar dd  a:hover{color:#c03;background:#ff9;}
+#sidebar dd  a small{color:#666;}
+
+/*-------------------------------------------------
+  タイトルまわり
+-------------------------------------------------*/
+#mainwrapper h2.ititle,
+#mainwrapper h2.ititle a,
+#mainwrapper h2.userinfo,
+#mainwrapper h2.error,
+#mainwrapper h3.ititle,
+#mainwrapper h3.ititle a,
+#archive h3{
+	color:#006;
+}
+#mainwrapper h2.ititle,
+#mainwrapper h2.userinfo,
+#mainwrapper h2.error,
+#mainwrapper h3.ititle,
+#archive h3{
+	border-left:#f63 0.8em solid;
+	padding-left:10px;
+}
+#mainwrapper h2.ititle a:hover,
+#mainwrapper h3.ititle a:hover{
+	color:#c00;
+}
+
+
+/*-------------------------------------------------
+  コメント
+-------------------------------------------------*/
+#coment h3{
+	border-bottom-color:#999;
+	border-left-color:#f63;
+} 
+
+
+/*-------------------------------------------------
+  フッター
+-------------------------------------------------*/
+#footer{border-top:1px solid #999;}
+#footer,#footer a{color:#006;}
+

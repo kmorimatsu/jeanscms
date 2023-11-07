@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP">
+<!-- 
+ * Jeans CMS (GPL license)
+ * $Id: japanese.html 240 2010-08-01 00:54:14Z kmorimatsu $
+-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Jeans CMS管理用ヘルプ</title>
+	<style type="text/css">
+	
+	    <!--
+	        body {
+	            font-family: verdana, arial;
+	            font-size: small;
+	        }
+	
+	        h1 {
+	            font-size: large;
+	            border-bottom: 1px gray dashed;
+	            color: #596d9d;
+	            text-align: left;
+	        }
+	
+	        h2 {
+	            font-size: medium;
+	            border: 1px solid #ddd;
+	            background-color: whitesmoke;
+	            text-align: left;
+	        }
+	
+	        .page {
+	            height: 800px;
+	            text-align: justify;
+	            margin-bottom: 100px;
+	        }
+	
+	        pre {
+	            background-color: #ddd;
+	            padding: 5px;
+	            font-size: small;
+	        }
+	
+	        .example {
+	            background-color: #ddd;
+	            padding: 5px;
+	        }
+	
+	        ul.templates {
+	            font-size: x-small;
+	            line-height: 1.1;
+	            list-style: none;
+	            text-indent: -20px;
+	            margin-left: 20px;
+	        }
+	
+	        ul {
+	            text-align: left;
+	        }
+	
+	        a:link, a:visited {
+	            color: #1D3565;
+	            font-weight: bold;
+	            text-decoration: underline;
+	        }
+	
+	        a:hover {
+	            background-color: whitesmoke;
+	        }
+	
+	        .deprecated {
+	            border: 3px solid red;
+	            padding: 5px;
+	            font-size: medium;
+	        }
+	
+	        tt, code {
+	            font-size: small;
+	        }
+	
+	        table {
+	            border: 1px solid #ccc;
+	        }
+	
+	        th {
+	            background-color: #eee;
+	        }
+	
+	        td {
+	            vertical-align: top;
+	        }
+	
+	        .note {
+	            background-color: #eee;
+	            padding: 5px;
+	        }
+	    -->
+	
+	</style>
+</head>
+<body>
+
+<div class="page">
+<h1>Jeans CMSポップアップ・ヘルプ</h1>
+<p>ファイル読み込み中、しばらく待ちください（ファイルサイズはおよそ100KBです）。</p>
+</div>
+
+<div class="page"><a name="conf_default_language_text"></a>
+<h1>言語</h1>
+<p>Jeansが生成するコンテンツに用いられる言語を選択することができます。Jeansによって生成されるコンテンツには、管理領域、エラーメッセージ、スキンにおけるフォームなどが含まれます。</p>
+
+<p>言語の選択を行う場所は二ヶ所あります。一箇所目は「グローバル設定」で、「デフォルトの言語」を設定します。もう一箇所は、「あなたの設定」（もしくは「メンバー管理」から入れる個々のメンバーの設定ページ）でメンバー毎ログイン時の使用言語を設定することが出来ます。</p>
+
+<p>これら両方の設定が無効の場合、英語がデフォルトの言語として用いられます</p>
+
+<p class="note"><strong>注意：</strong> 追加の言語ファイルは将来、<a href="http://jeanscms.sourceforge.jp/" onclick="window.open(this.href);return false;" class="out" title="Jeans CMS Website">Jeansのウェブサイト</a>からダウンロードできるようになるかもしれません。（新規ウィンドウが開きます）</p>
+
+</div>
+
+<div class="page"><a name="conf_default_group_text"></a>
+<h1>デフォルトグループ</h1>
+<p>サイトへの接続時にグループが指定されていない場合に表示されるグループです。</p>
+</div>
+
+<div class="page"><a name="conf_default_group_skin_text"></a>
+<h1>デフォルトスキン</h1>
+<p>適用すべきスキンが見つからなかった時に代用するスキンを設定します。これはスキン・パーツが設定されていなかったり、スキンが明確に指定されていなかったりした時に起こります。</p>
+<p>ほとんどのユーザーは、この設定を気にする必要がありません。</p>
+</div>
+
+<div class="page"><a name="conf_default_admin_skin_text"></a>
+<h1>デフォルト管理画面スキン</h1>
+<p>Jeans CMSの管理画面に使うスキンのデフォルト値です。新規ユーザーを作成した場合など、ここで設定したスキンが管理画面の表示に使われます。</p>
+<p>各ユーザーがログインした時の管理画面に用いられるスキンは、「あなたの設定」ページで変更することができます。</p>
+</div>
+
+<div class="page"><a name="conf_default_editor_text"></a>
+<h1>デフォルトのエディター</h1>
+<p>Jeans CMSの管理画面で記事の編集を行うときのエディターのデフォルト値です。新規ユーザーを作成した場合など、ここで設定したエディターが各ユーザー使用のエディターのデフォルトになります。</p>
+<p>各ユーザーが実際に使うエディターは、「あなたの設定」ページで変更することができます。</p>
+</div>
+
+<div class="page"><a name="conf_timezone_text"></a>
+<h1>タイムゾーン</h1>
+<p>Jeansが使うタイムゾーンを指定できます。この設定は、必ずしもサーバーがおいてある地域のタイムゾーンと同じである必要は有りません。</p>
+<p>使用可能なタイムゾーンには、次のような例が有ります。</p>
+<ul>
+<li>Asia/Tokyo</li>
+<li>America/Los_Angeles</li>
+</ul>
+<p class="note">サポートされるタイムゾーンは、<a href="http://www.php.net/manual/timezones.php" onclick="window.open(this.href);return false;" class="out" title="Time zones">PHPのWebサイト</a>で閲覧することができます。（新規ウィンドウが開きます）</p>
+</div>
+
+<div class="page"><a name="conf_media_settings_text"></a>
+<h1>メディア</h1>
+<p>Nucleusはメディアファイル（画像、動画、音楽など等）をウェブサイトにアップロードすることができます。</p>
+<p>このためにいくつかの設定が必要となります：</p>
+<ul>
+<li><b>デフォルトのメディア・マネージャー:</b> Jeans CMSの管理画面で使用するメディアマネージャーののデフォルト値です。新規ユーザーを作成した場合など、ここで設定したメディアマネージャーが各ユーザー使用のデフォルトになります。
+<li><b>ファイルのアップロードを許可しますか？:</b> ファイルのアップロードを不許可にすることができます
+<li><b>アップロードを許可するファイルの種類:</b> アップロードできるファイルの拡張子（複数必要な場合は、コンマで区切る）
+<li><b>アップロードするファイルの最大のサイズ:</b> ここで設定したものよりファイルサイズの大きなものはアップロードすることが出来ません。
+<li><b>アップロードするファイルのサイズ合計の上限:</b> 管理者以外は、ここで設定したものよりファイルサイズの合計が大きく出来ません。
+<li><b>アップロードするファイルに、接頭語として日付を付けますか？:</b> アップロードされたファイルのファイル名の先頭に、現在の日付が頭に付加するかどうかを選択します。このオプションで「はい」を選んでいると、例えば 'bunny.jpg'という名前のファイルを2007年3月25日にアップロードしたなら、'20070325-bunny.jpg'というファイル名になります。何故こんな機能があるかというと、大量のファイルをアップロードしているときについ同じ名前を用いてしまう問題を避けるためです。
+</ul>
+</div>
+
+
+<div class="page"><a name="conf_cookie_settings_text"></a>
+<h1>クッキー設定</h1>
+<h2>クッキー接頭語</h2>
+<p>同一サイトで他のアプリケーションとクッキーの名前がかぶらない様に、接頭語を指定することができます。インストール時に自動で設定されたますので、変更する必要は特に有りません。</p>
+<h2>ログインクッキーの有効期間</h2>
+<p>デフォルトでは、メンバーがログインするとブラウザにcookieが保存され、翌日に戻ってきたときに再びログインする必要がなくなります。クッキーの有効期間によって、いつ無効になるか決定されます。</p>
+<ul>
+    <li><strong>セッションごと</strong> ? ブラウザを終了させるとcookieは削除されます。</li>
+    <li><strong>一ヶ月</strong> ? 一ヶ月続けてサイトか管理領域を訪れないというようなことが無い限り、cookieはコンピュータに残り続けます。このオプションを使えば、おそらく再ログインする必要はなくなるでしょう。（自分でログアウトしたときや、他のコンピュータからログインするときは別ですが）</li>
+</ul>
+<h2>クッキーパス・クッキードメイン・HTTPSクッキー・クッキーIPマスク</h2>
+<p>これらは上級の設定です。通常は、クッキーパスは単純にスラッシュ（'/'）、クッキードメインは空っぽ、HTTPSクッキーはいいえ、クッキーIPマスクは24の状態から変更する必要はありません。</p>
+<h2>最終訪問日時Cookieの保存</h2>
+<p>訪問者が最後に訪れた時間をcookieに保存させるように設定することができます。これによって、<a href="#templatenew">新規アイテム</a>の隣にマークを付けることができます。</p>
+</div>
+</body></html>

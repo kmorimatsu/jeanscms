@@ -1,0 +1,6 @@
+td a:link, td a:visited {
+	text-decoration : none;
+}
+tr.jp_skinfiles_virtual td, tr.jp_skinfiles_virtual td a:link, tr.jp_skinfiles_virtual td a:visited {
+	color : #b0b0ff;
+}

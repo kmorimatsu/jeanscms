@@ -1,0 +1,4 @@
+jQuery source codes are available from following links:
+
+jquery-1.3.2.js: http://sourceforge.jp/projects/jeanscms/svn/view/jeanscms/trunk/skins/jeans/scripts/?root=jeanscms&pathrev=82
+jquery-1.4.2.js: http://sourceforge.jp/projects/jeanscms/svn/view/jeanscms/trunk/skins/jeans/scripts/?root=jeanscms&pathrev=190

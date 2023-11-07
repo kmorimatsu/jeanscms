@@ -1,0 +1,59 @@
+<%note(
+ * Jeans CMS (GPL license)
+ * $Id$
+)%>
+<%select(libs,admin,page)%>
+<%case(edititem)%>
+	<%view.parse(edititem.inc)%>
+<%case(itemlist)%>
+	<%view.parse(itemlist.inc)%>
+<%case(subgrouplist)%>
+	<%view.parse(subgrouplist.inc)%>
+<%case(groupsetting)%>
+	<%view.parse(groupsetting.inc)%>
+<%case(config)%>
+	<%view.parse(config.inc)%>
+<%case(commentlist)%>
+	<%view.parse(commentlist.inc)%>
+<%case(editcomment)%>
+	<%view.parse(editcomment.inc)%>
+<%case(newgroup)%>
+	<%view.parse(newgroup.inc)%>
+<%case(membersetting)%>
+	<%view.parse(membersetting.inc)%>
+<%case(addmember)%>
+	<%view.parse(addmember.inc)%>
+<%case(memberlist)%>
+	<%view.parse(memberlist.inc)%>
+<%case(loginsetting)%>
+	<%view.parse(loginsetting.inc)%>
+<%case(batch)%>
+	<%view.parse(batch.inc)%>
+<%case(plugin)%>
+	<%view.parse(plugin.inc)%>
+<%case(poption)%>
+	<%view.parse(poption.inc)%>
+<%case(map)%>
+	<%view.parse(map.inc)%>
+<%case(db)%>
+	<%view.parse(sql/db.inc)%>
+<%case(reactivate)%>
+	<%view.parse(reactivate.inc)%>
+<%case(forgotpassword)%>
+	<%view.parse(forgotpassword.inc)%>
+<%case(media)%>
+	<%view.parse(media.inc)%>
+<%case(log)%>
+	<%view.parse(log.inc)%>
+<%case(padmin,guest_padmin,member_padmin)%>
+	<%admin.plugin2.parse%>
+<%case.else%>
+	<%if.member.isadmin%>
+		<%view.parse(main.inc)%>
+	<%elseif.member.loggedin%>
+		<%error.note(templates/note.inc)%>
+		<%view.parse(menu.inc)%>
+	<%else%>
+		<%view.parse(login.inc)%>
+	<%endif%>
+<%endselect%>

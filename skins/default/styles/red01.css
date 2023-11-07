@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+/*-------------------------------------------------
+  基本設定
+-------------------------------------------------*/
+*{color:#333;}
+a{color:#006;}
+a:hover{color:#900;}
+
+body{;}
+#body{
+	margin-top:10px;
+	background:#fff;
+}
+
+/*-------------------------------------------------
+  ヘッダー
+-------------------------------------------------*/
+#header{
+	background:#ccc url(../img/a0008.jpg) no-repeat -100px -10px;
+	border-bottom:3px solid #900;
+}
+#header h1,
+#header h1 a{
+	color:#fff;
+}
+#header h1 .desc{
+	color:#c00;
+}
+
+
+/*-------------------------------------------------
+  アサイド
+-------------------------------------------------*/
+#sidebar{background:#c00;}
+#sidebar dl dt{
+	border-bottom-color:#c66;
+	border-left-color:#ff0;
+	color:#000;
+}
+#sidebar .menu dd{border-bottom-color:#cc7575;}
+#sidebar dd  a{color:#dedede;}
+#sidebar dd  a:hover{color:#fff;}
+#sidebar dd  a small{color:#999;}
+
+/*-------------------------------------------------
+  タイトルまわり
+-------------------------------------------------*/
+#mainwrapper h2.ititle,
+#mainwrapper h3.ititle{
+	padding-top:32px;
+	border:none;
+}
+
+.item{background:url(img/bikegirl.gif) repeat-x;}
+
+
+
+/*-------------------------------------------------
+  コメント
+-------------------------------------------------*/
+#coment h3{
+	border-bottom-color:#999;
+	border-left-color:#900;
+} 
+
+
+/*-------------------------------------------------
+  Forms CSS
+-------------------------------------------------*/
+.loginform,.loginform label{color:#ccc;}
+
+
+/*-------------------------------------------------
+  フッター
+-------------------------------------------------*/
+#footer{border-color:#900;}
+#footer,#footer a{color:#333;}
+

@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+/*-------------------------------------------------
+  基本設定
+-------------------------------------------------*/
+*{color:#333;}
+a{color:#009;}
+
+body{background:#dedede url(../img/borderEF.gif);}
+#body{
+	margin-top:10px;
+	background:#fff;
+	border-right:1px #999 solid;
+}
+
+/*-------------------------------------------------
+  ヘッダー
+-------------------------------------------------*/
+#header{
+	background:#0000de;
+	border-bottom:3px solid #000;
+}
+#header h1,
+#header h1 a,
+#header h1 .desc{
+	color:#dedede;
+}
+
+
+/*-------------------------------------------------
+  アサイド
+-------------------------------------------------*/
+#sidebar{background:#000;}
+#sidebar dl dt{
+	border-bottom-color:#999;
+	border-left-color:#0000de;
+	color:#e2e2e2;
+}
+#sidebar .menu dd{border-bottom-color:#666;}
+#sidebar dd  a{color:#36f;}
+#sidebar dd  a:hover{color:#f63;}
+#sidebar dd  a small{color:#666;}
+
+/*-------------------------------------------------
+  タイトルまわり
+-------------------------------------------------*/
+#mainwrapper h2.ititle,
+#mainwrapper h2.userinfo,
+#mainwrapper h2.error,
+#mainwrapper h3.ititle,
+#archive h3{
+	padding-top:5px;
+	background-color:#f6f6f6;
+}
+
+
+/*-------------------------------------------------
+  コメント
+-------------------------------------------------*/
+#coment h3{
+	border-bottom-color:#999;
+	border-left-color:#f63;
+} 
+
+
+/*-------------------------------------------------
+  Forms CSS
+-------------------------------------------------*/
+.loginform,.loginform label{color:#ccc;}
+
+
+/*-------------------------------------------------
+  フッター
+-------------------------------------------------*/
+#footer{
+	background:#0000de;
+	border-color:#000;
+}
+#footer,#footer a{color:#efefef;}
+

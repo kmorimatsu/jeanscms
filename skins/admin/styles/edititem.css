@@ -1,0 +1,47 @@
+/*
+ * Jeans CMS (GPL license)
+ * $Id: edititem.css 216 2010-06-27 18:42:54Z kmorimatsu $
+ */
+
+.leftbox, .rightbox {
+	margin: 3px;
+	padding: 3px;
+	width: 20%;
+}
+.leftbox {
+	float: left;
+	border-right: 2px solid #888;	
+}
+.rightbox {
+	float: right;
+	border-left: 2px solid #888;	
+}
+
+/* markup buttons */
+.jsbutton {
+	text-align: center;
+	padding: 3px;
+	border: 1px solid #dddddd;
+}
+
+.jsbutton:hover {
+	text-align: center;
+	cursor:pointer;
+	padding: 3px;
+	border: 1px solid #888888;
+}
+
+.jsbuttonspacer {
+	padding-right: 10px;
+}
+
+.jsbuttonbar {
+	padding: 3px;
+	cursor: default;
+}
+
+textarea {
+    padding:5px;
+    width:520px;
+    height:300px;
+}
