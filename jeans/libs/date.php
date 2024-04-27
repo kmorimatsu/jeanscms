@@ -21,13 +21,13 @@ class date extends jeans {
 		$al='abcdefghijklmnopqrstuvwxyz';
 		$ah=strtoupper($al);
 		for($i=0;$i<26;$i++){
-			self::$xcase[$al{$i}]=$ah{$i};
-			self::$xcase[$ah{$i}]=$al{$i};
+			self::$xcase[$al[$i]]=$ah[$i];
+			self::$xcase[$ah[$i]]=$al[$i];
 		}
 	}
 	static public function strftime($format,$time=false){
 		self::$time=$time;
-		return preg_replace_callback('/%([_0#\^\-]?)([a-zA-Z%])/',array('self','cb_strftime'),$format);
+		return preg_replace_callback('/%([_0#\^\-]?)([a-zA-Z%])/',self::class.'::cb_strftime',$format);
 	}
 	static private function cb_strftime($m){
 		$result=self::cb_strftime_sub($m[2]);

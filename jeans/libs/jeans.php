@@ -84,11 +84,11 @@ class jeans {
 				$dir=_DIR_SKINS;
 		}
 		if (self::local_file_exists($dir,$skinphp)) {
-			$er=error_reporting(E_ALL ^ E_NOTICE);
+			$er=error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 			self::include_local($dir,$skinphp);
 			error_reporting($er);
 		} elseif (self::local_file_exists($dir,$skinphpen)) {
-			$er=error_reporting(E_ALL ^ E_NOTICE);
+			$er=error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 			self::include_local($dir,$skinphpen);
 			error_reporting($er);
 		}
@@ -256,9 +256,9 @@ class core extends jeans {
 	static private function read_conf(){
 		$er=error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 		// Clear DB configrations if not defined
-		define('_CONF_DB_TYPE', '');
-		define('_CONF_DB_MAIN', '');
-		define('_CONF_DB_LOGIN','');
+		@define('_CONF_DB_TYPE', '');
+		@define('_CONF_DB_MAIN', '');
+		@define('_CONF_DB_LOGIN','');
 		// Read configure from DB
 		// ' type="global" AND contextid=0 ' is used here.
 		// The other contextid is currently reserved. 
@@ -286,28 +286,28 @@ class core extends jeans {
 		if (!defined('_CONF_COOKIE_PREFIX')) {
 			define('_CONF_COOKIE_PREFIX','jeans_'.preg_replace('/[0-9]/','',sha1(__FILE__).'_'));
 		}
-		define('_CONF_COOKIE_PATH','/');
-		define('_CONF_COOKIE_DOMAIN','');
-		define('_CONF_COOKIE_SECURE',0);
-		define('_CONF_SECURE_COOKIE_KEY',24);
-		define('_CONF_COOKIE_LIFETIME',1); //Month
-		define('_CONF_LASTVISIT',0);
+		@define('_CONF_COOKIE_PATH','/');
+		@define('_CONF_COOKIE_DOMAIN','');
+		@define('_CONF_COOKIE_SECURE',0);
+		@define('_CONF_SECURE_COOKIE_KEY',24);
+		@define('_CONF_COOKIE_LIFETIME',1); //Month
+		@define('_CONF_LASTVISIT',0);
 		// Others
-		define('_DIR_PLUGINS', false); // For housekeeping jeans not using plugins (for example: installer).
+		@define('_DIR_PLUGINS', false); // For housekeeping jeans not using plugins (for example: installer).
 		if (!defined('_CONF_TIMEZONE')) {
 			define('_CONF_TIMEZONE',@date_default_timezone_get());
 		}
-		define('_CONF_DEFAULT_LANGUAGE','english');
-		define('_CONF_DEFAULT_GROUP',1);
-		define('_CONF_DEFAULT_GROUP_SKIN','/default/skin.inc');
-		define('_NOW_TIMESTAMP',time());
-		define('_NOW',gmdate('Y-m-d H:i:s', _NOW_TIMESTAMP));
-		define('_XML_BLANC','<?xml version="1.0"?><xml></xml>');
-		define('_SAFE_CHAR',           '[0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_`{}~\x80-\xff]');
-		define('_PREG_SAFE_TEXT',    '/^[0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_`{}~\x80-\xff]*$/D');
-		define('_PREG_PATH',         '/^[0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_{}~\/\\\\]*$/D');
-		define('_NON_SAFE_CHAR',      '[^0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_`{}~\x80-\xff]');
-		define('_PREG_NON_SAFE_CHAR','/[^0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_`{}~\x80-\xff]/');
+		@define('_CONF_DEFAULT_LANGUAGE','english');
+		@define('_CONF_DEFAULT_GROUP',1);
+		@define('_CONF_DEFAULT_GROUP_SKIN','/default/skin.inc');
+		@define('_NOW_TIMESTAMP',time());
+		@define('_NOW',gmdate('Y-m-d H:i:s', _NOW_TIMESTAMP));
+		@define('_XML_BLANC','<?xml version="1.0"?><xml></xml>');
+		@define('_SAFE_CHAR',           '[0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_`{}~\x80-\xff]');
+		@define('_PREG_SAFE_TEXT',    '/^[0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_`{}~\x80-\xff]*$/D');
+		@define('_PREG_PATH',         '/^[0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_{}~\/\\\\]*$/D');
+		@define('_NON_SAFE_CHAR',      '[^0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_`{}~\x80-\xff]');
+		@define('_PREG_NON_SAFE_CHAR','/[^0-9a-zA-Z\x20!#$&\(\)\-\.@\[\]\^_`{}~\x80-\xff]/');
 		error_reporting($er);
 	}
 	static private function post_read_conf(){
@@ -332,11 +332,11 @@ class core extends jeans {
 			self::set_cookie('note_text','',0);
 		}
 		// Cancel magic_quotes_gpc (this routine will be removed after shifting to PHP6)
-		if (get_magic_quotes_gpc()) {
+		/*if (get_magic_quotes_gpc()) {
 			self::undo_magic($_GET);
 			self::undo_magic($_POST);
 			self::undo_magic($_COOKIE);
-		}
+		}*/
 	}
 	static private function undo_magic(&$array){
 		if (is_array($array)) {
@@ -683,7 +683,7 @@ class sql extends jeans{
 			'/(?:<%([a-zA-Z0-9_]+)%>|<%key:[a-zA-Z0-9_]+%>)/',
 			'/<%(const):([a-zA-Z0-9_]+)%>/',
 			'/<%(const):([a-zA-Z0-9_]+::[a-zA-Z0-9_]+)%>/');
-		static $replace=array('self','fill_sql_cb');
+		static $replace=self::class.'::fill_sql_cb';
 		self::fill_sql_cb(false,$data,$prepared); // Initialize callback function.
 		$query=preg_replace_callback($search,$replace,$text);
 		if ($prepared) {
@@ -847,7 +847,7 @@ class sqlfunc {
 		$pdo->sqliteCreateFunction('UpdateXML',array('sqlfunc','UpdateXML'));
 		$pdo->sqliteCreateFunction('base64decode','base64_decode');
 	}
-	static public function ExtractValue(&$xml_frag, $xpath_expr){
+	static public function ExtractValue($xml_frag, $xpath_expr){
 		// Note that only relative path for $xpath_expr is allowed.
 		/* $xml=new SimpleXMLElement($xml_frag);
 		return $xml->$xpath_expr; //*/

@@ -19,11 +19,11 @@ if (file_exists(dirname(__FILE__).'/../sqlite/.htdblogin')){
 }
 
 // Install script specific settings follow
-define('_CONF_DEBUG_MODE',true);
-define('_DIR_PLUGINS',false);
-define('_CONF_SELF',basename(__FILE__));
-define('_DIR_SKINS', dirname(__FILE__) . '/');
-define('_CONF_URL_SKINS',
+@define('_CONF_DEBUG_MODE',true);
+@define('_DIR_PLUGINS',false);
+@define('_CONF_SELF',basename(__FILE__));
+@define('_DIR_SKINS', dirname(__FILE__) . '/');
+@define('_CONF_URL_SKINS',
 	'http://'.$_SERVER['HTTP_HOST'].
 	substr($_SERVER['SCRIPT_NAME'],0,0-strlen(basename(__FILE__))));
 

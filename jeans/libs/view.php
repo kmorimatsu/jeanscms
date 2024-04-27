@@ -14,7 +14,7 @@ class view extends jeans {
 		foreach(array('_GET','_POST','_REQUEST','_COOKIE','_SERVER') as $key) self::$globals[$key]=&$GLOBALS[$key];
 		foreach(array('libs','jp', 'history') as $key) self::$globals[$key]=array();
 		self::$globals['template']='init';
-		self::$globals['libs']['data']['constant']=create_function('$data,$key','return constant($key);');
+		self::$globals['libs']['data']['constant']=function ($data,$key) { return constant($key); };
 	}
 	/* Force current skin to the input. */
 	static public function set_skin($skin,$parent_skin=false){
@@ -133,14 +133,14 @@ class view extends jeans {
 				'/(\r\n|\r|\n?)(?:\t*)<%([a-zA-Z_][a-zA-Z0-9_]*(?:\.[a-zA-Z_][a-zA-Z0-9_]*)*)%>/',
 				'/(\r\n|\r|\n?)(?:\t*)<%([a-zA-Z_][a-zA-Z0-9_]*(?:\.[a-zA-Z_][a-zA-Z0-9_]*)*)\(([\s\S]*?)\)%>/');
 			if (ini_get('short_open_tag')) array_unshift($search,'/<\?xml/');
-			$replace=array('self','compile_cb');
+			$replace=self::class.'::compile_cb';
 		}
 		// Actually, JIT compiler is just a preg_replace_callback.
 		//self::$compile_using=array();// Reset <%using%> (this tag must be used in every .inc file)
 		$compiled=preg_replace_callback($search,$replace,$source);
 		if (!$lambda) return $compiled;
 		// Create lambda
-		$code=create_function('&$data','?>'.$compiled.'<?php return true;');
+		eval(‘$code=function(&$data){?>'.$compiled.'<?php return true;};' );
 		if (!is_callable($code)) return jerror::compile_error($source,$compiled);
 		return $code;
 	}
@@ -271,7 +271,7 @@ class view extends jeans {
 	 */
 	static public function compile_item(&$data,$item){
 		static $search=array('/<%([a-zA-Z0-9\.]+)%>/','/<%([a-zA-Z0-9\.]+)\(([\s\S]*?)\)%>/');
-		static $replace=array('self','compile_item_cb');
+		static $replace=self::class.'::'compile_item_cb';
 		self::compile_item_cb(array('data'=>&$data,'prefix'=>'itemtag_'),true);
 		return preg_replace_callback($search,$replace,$item);
 	}

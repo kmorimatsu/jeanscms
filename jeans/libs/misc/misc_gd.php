@@ -148,15 +148,15 @@ class misc_gd extends jeans {
 			$j = 0;
 			while($j < $clrused*$factor) {
 				if($factor === 3) {
-					$b	= $palette{$j++};
-					$g	= $palette{$j++};
-					$r	= $palette{$j++};
+					$b	= $palette[$j++];
+					$g	= $palette[$j++];
+					$r	= $palette[$j++];
 					$gd_palette .= "$r$g$b";
 				} else {
-					$b	= $palette{$j++};
-					$g	= $palette{$j++};
-					$r	= $palette{$j++};
-					$rsvd	= $palette{$j++};
+					$b	= $palette[$j++];
+					$g	= $palette[$j++];
+					$r	= $palette[$j++];
+					$rsvd	= $palette[$j++];
 					$gd_palette .= "$r$g$b$rsvd";
 				}
 			}
@@ -215,9 +215,9 @@ class misc_gd extends jeans {
 				// COLOR_TYPE
 				$j = 0;
 				while($j < $line_avail_byte) {
-					$b = $line{$j++};
-					$g = $line{$j++};
-					$r = $line{$j++};
+					$b = $line[$j++];
+					$g = $line[$j++];
+					$r = $line[$j++];
 					$gd_image_line .= "\x00$r$g$b";
 				}
 			} else if($bitcnt == 8) {
@@ -227,7 +227,7 @@ class misc_gd extends jeans {
 				// PALETTE_TYPE
 				$j = 0;
 				while($j < $line_avail_byte) {
-					$byte = ord($line{$j++});
+					$byte = ord($line[$j++]);
 					$p1 = chr($byte >> 4);
 					$p2 = chr($byte & 0x0F);
 					$gd_image_line .= "$p1$p2";
@@ -237,7 +237,7 @@ class misc_gd extends jeans {
 				// PALETTE_TYPE
 				$j = 0;
 				while($j < $line_avail_byte) {
-					$byte = ord($line{$j++});
+					$byte = ord($line[$j++]);
 					$p1 = chr((int) (($byte & 0x80) != 0));
 					$p2 = chr((int) (($byte & 0x40) != 0));
 					$p3 = chr((int) (($byte & 0x20) != 0));

@@ -48,8 +48,8 @@ class comments extends jeans{
 	static public function tag_body(&$data){
 		$body=self::hsc($data['body']);
 		$body=trim($body);
-		$body=preg_replace_callback('/(^|[ \r\n])([ ]+)/',array('self','cb1_tag_body'),$body);
-		$body=preg_replace_callback('/([^\r\n]*)(\r\n|\r|\n|$)/',array('self','cb2_tag_body'),$body);
+		$body=preg_replace_callback('/(^|[ \r\n])([ ]+)/',self::class.'::cb1_tag_body',$body);
+		$body=preg_replace_callback('/([^\r\n]*)(\r\n|\r|\n|$)/',self::class.'::cb2_tag_body',$body);
 		self::echo_html($body);
 	}
 	static private function cb1_tag_body(&$m){

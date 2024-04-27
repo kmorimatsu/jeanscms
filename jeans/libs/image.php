@@ -13,7 +13,7 @@ class image extends jeans{
 		$args[0]=&$data;
 		if (self::local_file_exists(_DIR_SKINS,'/media/'.$file)) $args[1]='/media/'.$file;
 		ob_start();
-		call_user_func_array(array('self','tag_image'),$args);
+		call_user_func_array(self::class.'::tag_image',$args);
 		return ob_get_clean();
 	}
 	static private function image_props(&$data,$file=false,$alt=false,$width=false,$height=false){
@@ -56,7 +56,7 @@ class image extends jeans{
 		// property=value implementation
 		$args=func_get_args();
 		$args[0]=&$data;
-		$props=call_user_func_array(array('self','image_props'),$args);
+		$props=call_user_func_array(self::class.'::image_props',$args);
 		array_shift($args);
 		foreach($args as $arg){
 			if (preg_match('/^([a-z]+)=([\s\S]*)$/',$arg,$m)) $props[$m[1]]=$m[2];
@@ -73,7 +73,7 @@ class image extends jeans{
 		//TODO: here
 		$args=func_get_args();
 		$args[0]=&$data;
-		$data=call_user_func_array(array('self','image_props'),$args);
+		$data=call_user_func_array(self::class.'::image_props',$args);
 		array_shift($args);
 		$props=array('href'=>$data['src']);
 		foreach($args as $arg){

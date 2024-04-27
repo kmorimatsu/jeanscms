@@ -89,7 +89,7 @@ class jerror extends jeans {
 			}
 			self::echo_html('<hr /><pre><%0%><hr /><%1%></pre><hr />',array($source,$compiled),'hsc');
 		}
-		return create_function('','return false;');
+		return function(){ return false; };
 	}
 	// From core.php
 	static public function set_error($mode,$error,$array=array()){
