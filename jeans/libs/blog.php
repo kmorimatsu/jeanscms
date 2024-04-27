@@ -213,12 +213,12 @@ class blog extends group {
 			self::$query_regex[]='/(?:'.implode('|',$words).')/i';
 		}
 	}
-	static public function sql_libs_blog_search(&$title,&$body,&$more,&$keywords){
+	static public function sql_libs_blog_search($title,$body,$more,$keywords){
 		foreach(self::$query_regex as $regex){
-			if (preg_match($regex,$keywords)) continue;
-			if (preg_match($regex,$title)) continue;
-			if (preg_match($regex,$body)) continue;
-			if (preg_match($regex,$more)) continue;
+			if (preg_match($regex,(string)$keywords)) continue;
+			if (preg_match($regex,(string)$title)) continue;
+			if (preg_match($regex,(string)$body)) continue;
+			if (preg_match($regex,(string)$more)) continue;
 			return false;
 		}
 		return true;

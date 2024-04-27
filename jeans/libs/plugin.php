@@ -11,7 +11,7 @@ class plugin extends jeans {
 	}
 	static public final function plugin_list($class=false){
 		static $plugins;
-		$class=strtolower($class);
+		if ($class!==false) $class=strtolower($class);
 		if (!isset($plugins)) {
 			$plugins=array();
 			$res=sql::query('SELECT id FROM jeans_plugin ORDER BY sequence ASC');
