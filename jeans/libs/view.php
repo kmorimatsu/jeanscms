@@ -140,7 +140,7 @@ class view extends jeans {
 		$compiled=preg_replace_callback($search,$replace,$source);
 		if (!$lambda) return $compiled;
 		// Create lambda
-		eval(‘$code=function(&$data){?>'.$compiled.'<?php return true;};' );
+		eval( '$code=function(&$data){?>'.$compiled.'<?php return true;};' );
 		if (!is_callable($code)) return jerror::compile_error($source,$compiled);
 		return $code;
 	}
@@ -271,7 +271,7 @@ class view extends jeans {
 	 */
 	static public function compile_item(&$data,$item){
 		static $search=array('/<%([a-zA-Z0-9\.]+)%>/','/<%([a-zA-Z0-9\.]+)\(([\s\S]*?)\)%>/');
-		static $replace=self::class.'::'compile_item_cb';
+		static $replace=self::class.'::compile_item_cb';
 		self::compile_item_cb(array('data'=>&$data,'prefix'=>'itemtag_'),true);
 		return preg_replace_callback($search,$replace,$item);
 	}
@@ -576,17 +576,17 @@ class data extends jeans {
 	static public function if_contains(&$data,$value){
 		$args=func_get_args();
 		$datavalue=self::get_data($args,1);
-		return strpos($datavalue,$value)!==false;
+		return strpos(''.$datavalue,$value)!==false;
 	}
 	static public function if_startsfrom(&$data,$value){
 		$args=func_get_args();
 		$datavalue=self::get_data($args,1);
-		return substr($datavalue,0,strlen($value))==(string)$value;
+		return substr(''.$datavalue,0,strlen($value))==(string)$value;
 	}
 	static public function if_endswith(&$data,$value){
 		$args=func_get_args();
 		$datavalue=self::get_data($args,1);
-		return substr($datavalue,0-strlen($value))==(string)$value;
+		return substr(''.$datavalue,0-strlen($value))==(string)$value;
 	}
 	static public function if_match(&$data,$value){
 		$args=func_get_args();

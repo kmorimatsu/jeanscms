@@ -7,9 +7,10 @@
 /**
  * There is only one global function here.
  */
-function __autoload($class) {
+function jeans_autoload($class) {
 	return core::autoload($class);
 }
+spl_autoload_register('jeans_autoload');
 
 class jeans {
 	/**
@@ -36,6 +37,7 @@ class jeans {
 		return $result.$toadd;
 	}
 	static public final function quote_html($text,$mode='notag'){
+		$text=''.$text;
 		switch($mode){
 			case 'escape_hsc':
 				$text=strtr($text,array('"'=>'\\"', "'"=>"\\'", '\\'=>'\\\\'));
@@ -157,7 +159,7 @@ class jeans {
 		return true;
 	}
 	static public final function random_key(){
-		mt_srand( (double) microtime() * 1000000);
+		mt_srand( (int)( (double) microtime() * 1000000 ) );
 		return sha1(_HASH_SALT.uniqid(mt_rand()));
 	}
 	static public final function is_valid_url($url){
