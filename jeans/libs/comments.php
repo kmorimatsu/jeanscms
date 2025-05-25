@@ -52,7 +52,7 @@ class comments extends jeans{
 		$body=preg_replace_callback('/([^\r\n]*)(\r\n|\r|\n|$)/',self::class.'::cb2_tag_body',$body);
 		self::echo_html($body);
 	}
-	static private function cb1_tag_body(&$m){
+	static private function cb1_tag_body($m){
 		// '   ' => ' &nbsp;&nbsp;' conversion
 		return $m[1].str_repeat('&nbsp;',strlen($m[2]));
 	}
